@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/css/foodNavBar.css'
 import { Navbar, Nav, Image } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import IconHome from '../../assets/images/icons/iconHome.png';
 import IconPizza from '../../assets/images/icons/iconPizza.png';
 import IconBurger from '../../assets/images/icons/iconBurger.png';

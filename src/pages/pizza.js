@@ -21,7 +21,6 @@ class InfoPizzas extends Component {
             pizzacinco: 5,
             pizzaseis: 6,
         }
-        console.log(this.state.pizzauno);
     }
     
     render() {
@@ -62,8 +61,10 @@ class InfoPizzas extends Component {
                                     <Card.Title>Pizza Vegetariana</Card.Title>
                                     <Card.Text>
                                         Una combinación de ricos ingredientes que harán que tu estómago agradezca.
-                                </Card.Text>
-                                    <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Card.Text>
+                                    <Link to={`/info/${this.state.pizzados}`}>
+                                        <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -75,7 +76,9 @@ class InfoPizzas extends Component {
                                     <Card.Text>
                                         No te preocupes si estás solo y quieres comer algo. Esta pizza es ideal para ti.
                                     </Card.Text>
-                                    <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    <Link to={`/info/${this.state.pizzatres}`}>
+                                        <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -90,7 +93,9 @@ class InfoPizzas extends Component {
                                     <Card.Text>
                                         No te preocupes si estás solo y quieres comer algo. Esta pizza con un solo ingrediente de queso es ideal para ti.
                                     </Card.Text>
-                                    <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    <Link to={`/info/${this.state.pizzacuatro}`}>
+                                        <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -101,8 +106,10 @@ class InfoPizzas extends Component {
                                     <Card.Title>Pizza Familiar de Peperoni con orillas rellenas de Queso</Card.Title>
                                     <Card.Text>
                                         La perfecta Pizza Familiar para compartir con las orillas relleneas de queso ideales para satisfacer hasta el hambre de un elefante.
-                                </Card.Text>
-                                    <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Card.Text>
+                                    <Link to={`/info/${this.state.pizzacinco}`}>
+                                        <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -114,7 +121,9 @@ class InfoPizzas extends Component {
                                     <Card.Text>
                                         Una receta muy peculiar para esta pizza pero perfecta para compartir con todos
                                     </Card.Text>
-                                    <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    <Link to={`/info/${this.state.pizzaseis}`}>
+                                        <Button variant="outline-danger">¡Ordenar ahora!</Button>
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>

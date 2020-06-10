@@ -1,6 +1,7 @@
 import React,{ Component }  from 'react';
-import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import { faStar, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
@@ -13,12 +14,14 @@ class InfoProduct extends Component{
         
         this.state = {
             productos: [],
-            id: '',
+            type: '',
         }
         console.log(this.state.pizza);
+        
     }
     
     componentDidMount() {
+        
         const { match } = this.props;
         
         axios.get(`http://localhost:8000/api/products/${match.params.pizzaId}`)
@@ -26,13 +29,17 @@ class InfoProduct extends Component{
             const productos = res.data;
             console.log(productos);
             this.setState({ productos });
+            
+            const type = productos.type_products.type;
+            console.log(type);
+            this.setState({ type });
         })
     } 
     
     render(){
         return(
             <Container className="container">
-                <a href="/">
+                <a onClick={() => this.props.history.goBack()}>
                     <FontAwesomeIcon icon={faLongArrowAltLeft} size="3x" className="arrow_back"/>
                 </a>
                 <Row className="center_content">
@@ -41,7 +48,7 @@ class InfoProduct extends Component{
                     </Col>
                     <Col xs lg="5" className="header_info">
                         <div>
-                            <h2 >{this.state.productos.name}</h2>
+                            <h2> {this.state.type} {this.state.productos.name}</h2>
                             <p className="precio">$<u>{this.state.productos.price}</u></p>
                             <div className="stars">
                                 <FontAwesomeIcon icon={faStar} className="icon"/>
@@ -51,7 +58,7 @@ class InfoProduct extends Component{
                                 <FontAwesomeIcon icon={faStar} className="icon"/>
                             </div>
                             <div className="mt-3">
-                                <p>Laborum amet proident proident fugiat mollit in incididunt cillum anim irure sint dolore. Tempor ad anim nisi amet sint et sit ullamco ad non anim.</p>
+                                <p>{this.state.productos.description}</p>
                             </div>
                             <Form className="py-3">
                                 <Row >

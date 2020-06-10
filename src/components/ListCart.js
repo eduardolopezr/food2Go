@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React,{ Component }  from 'react';
 import { Container, Row, Col, Button, Image } from 'react-bootstrap';
 
@@ -5,8 +6,37 @@ import '../assets/css/listcart.scss';
 import Product from './ProductData';
 
 class ListCart extends Component{
+    constructor() {
+        super();
+
+        this.state = {
+            productos: [],
+        }
+    }
+
+    componentDidMount() {
+        axios.get(`http://localhost:8000/api/products`)
+          .then(res => {
+            const productos = res.data;
+            console.log(productos);
+            this.setState({ productos });
+          })
+    } 
+
     render(){
+
+        let rows = [];
+
+        if (this.state.productos != null) {
+            this.state.productos.forEach((product) => {
+                rows.push(<Product producto={product} key={product}/>)
+            })
+        } else {
+            rows.push(<h1>Cargando</h1>)
+        }
+
         return(
+            // {this.state.productos.name}
             <Container className="container">
                 <Row className="header_cart mx-2">
                     <Col>Detalles del Producto</Col>
@@ -15,10 +45,8 @@ class ListCart extends Component{
                     <Col xs lg="1" className="center_text">Total</Col>
                 </Row>
                 
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                {/* Se pintan los datos del carrito */}
+                { rows }
 
                 <Row className="my-5 mx-2 content_order float">
                     <div className="col_dech">

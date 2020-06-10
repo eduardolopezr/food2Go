@@ -1,10 +1,9 @@
 import React,{ Component }  from 'react';
-import { Container, Row, Col, Button, Image } from 'react-bootstrap';
+import { Row, Col, Button, Image } from 'react-bootstrap';
 
 import Producto from'../assets/images/pizza2.png'
 
-
-class ProductData extends Component{
+class ProductData extends Component {
     render(){
         return(
             <div>
@@ -22,8 +21,8 @@ class ProductData extends Component{
                                     </Col>
                                     <Col xs lg="" className="content_info">
                                         <div>
-                                            <h6>Nombre del Producto</h6>
-                                            <p className="type_product">Tipo de Producto</p>
+                                            <h6>{this.props.producto.name}</h6>
+                                            <p className="type_product">Tipo de producto</p>
                                             <p className="description">Ea adipisicing nisi. Veniam eiusmod consectetur id proident pariatur.</p>
                                         </div>
                                     </Col>
@@ -35,7 +34,7 @@ class ProductData extends Component{
                         </Row>
                     </Col>
                     <Col xs lg="1" className="center_text center_item">
-                        <b>$ 00.00</b>
+                        <b>$ {this.props.producto.price}</b>
                     </Col>
                     <Col xs lg="2" className="center_text center_item_self pl-5">
                         <form>

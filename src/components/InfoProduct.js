@@ -3,25 +3,42 @@ import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
 
+import axios from 'axios';
 import Producto from '../assets/images/pizza1.jpg'
 import '../assets/css/infoProduct.scss';
 
 class InfoProduct extends Component{
+    constructor() {
+        super();
+
+        this.state = {
+            productos: []
+        }
+    }
+
+    componentDidMount() {
+        axios.get(`http://localhost:8000/api/products/1`)
+          .then(res => {
+            const productos = res.data;
+            console.log(productos);
+            this.setState({ productos });
+          })
+    } 
+
     render(){
         return(
             <Container className="container">
-                <a id="#show" href="#">
+                <a href="/">
                     <FontAwesomeIcon icon={faLongArrowAltLeft} size="3x" className="arrow_back"/>
-                    <span id="content">Back</span>
                 </a>
                 <Row className="center_content">
                     <Col xs={6} md={4} lg="5" className="image center_items">
                         <Image className="image_product" src={Producto} rounded />
                     </Col>
                     <Col xs lg="5" className="header_info">
-                        <div >
-                            <h2> Nombre del Producto </h2>
-                            <p className="precio">$ <u>00.00</u></p>
+                        <div>
+                            <h2 >{this.state.productos.name}</h2>
+                            <p className="precio">$<u>{this.state.productos.price}</u></p>
                             <div className="stars">
                                 <FontAwesomeIcon icon={faStar} className="icon"/>
                                 <FontAwesomeIcon icon={faStar} className="icon"/>

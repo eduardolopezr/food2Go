@@ -1,0 +1,172 @@
+/* VAriables  para colores */
+$color-red: rgb(218, 24, 24);
+$color-redBrown: brown;
+$color-white: white;
+$color-whitesmoke: whitesmoke;
+$color-bg-gray: rgb(73, 73, 73);
+/* ------------------------------------ */
+$width-content: 58%;
+$img-bg-sigup: url("../images/banner_signup.jpeg");
+$img-bg-login: url("../images/banner_login.jpg");
+
+/* Backgroun img de Login */
+.background_full_login {
+    background-image: $img-bg-login;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
+    position: relative;
+}
+/* Backgroun img de Login */
+.background_full_signup {
+    background-image: $img-bg-sigup;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
+    position: relative;
+}
+
+/* ------------------------------------ */
+.container_full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    .header {
+        position: relative;
+        .content_img {
+            display: flex;
+            justify-content: center;
+            .banner_login {
+                background-image: $img-bg-login;
+                background-size: cover;
+                width: $width-content;
+                height: 22rem;
+                border-top-left-radius: .8rem;
+                border-top-right-radius: .8rem;
+            }
+            .banner_signup {
+                background-image: $img-bg-sigup;
+                background-size: cover;
+                width: $width-content;
+                height: 15rem;
+                overflow: hidden;
+                border-top-left-radius: .8rem;
+                border-top-right-radius: .8rem;
+            }
+        }
+    }
+
+    /* Scss para login */
+    .content_data {
+        width: $width-content;
+        background: $color-bg-gray;
+        padding-top: 1rem;
+        padding-bottom: 1.5rem;
+        border-bottom-left-radius: .8rem;
+        border-bottom-right-radius: .8rem;
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h2 {
+                color: $color-white;
+                font-size: 2rem;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .content_form {
+                width: 60%;
+                margin: 0 2rem;
+            
+                .content_inputs {
+                    margin-bottom: 0;
+                }
+                .input_all {
+                    width: 100%;
+                    margin: .7rem 0;
+                    .icon {
+                        padding-right: 0;
+                        padding-left: 0;
+                        display: flex;
+                        justify-content: center;
+                        color: $color-whitesmoke;
+                    }
+                    #input {
+                        padding-left: 1rem;
+                    }
+                    .content_input {
+                        margin: auto;
+                        padding: 0;
+                        .input {
+                            width: 100%;
+                        }
+                    }
+                }
+                .link {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin: 0 2.5rem;
+                    padding-bottom: 1rem;
+                    padding-top: 0;
+                    p {
+                        font-size: 0.85rem;
+                        color:$color-whitesmoke;
+                    }
+                }
+                .content_btn {
+                    display: flex;
+                    justify-content: center;
+                    .btn_enviar {
+                        width: 40%;
+                        height: auto;
+                        border-radius: 2rem;
+                        background: $color-red;
+                        border-color: $color-red;
+                        &:hover {
+                            background: $color-redBrown;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* Alert */
+    .content_alert {
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        padding: 0 7rem;
+        .alert {
+            width: 45%;
+            text-align: center;
+            transition: opacity 1s ease-out;
+        }
+
+        .true {
+            display: block;
+            opacity: 1;
+        }
+        .false {
+            display: none;
+            opacity: 0;
+        }
+    }
+}

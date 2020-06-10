@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../src/assets/css/navBar.css';
+import '../assets/css/navBar.css';
 import { Nav, Navbar } from 'react-bootstrap';
 
 class NavBar extends Component {

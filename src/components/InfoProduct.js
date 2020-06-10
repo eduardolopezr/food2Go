@@ -10,21 +10,25 @@ import '../assets/css/infoProduct.scss';
 class InfoProduct extends Component{
     constructor() {
         super();
-
+        
         this.state = {
-            productos: []
+            productos: [],
+            id: '',
         }
+        console.log(this.state.pizza);
     }
-
+    
     componentDidMount() {
-        axios.get(`http://localhost:8000/api/products/1`)
-          .then(res => {
+        const { match } = this.props;
+        
+        axios.get(`http://localhost:8000/api/products/${match.params.pizzaId}`)
+        .then(res => {
             const productos = res.data;
             console.log(productos);
             this.setState({ productos });
-          })
+        })
     } 
-
+    
     render(){
         return(
             <Container className="container">

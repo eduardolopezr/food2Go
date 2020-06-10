@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
-import '../assets/css/background.css';
 import {Image,Container,Row,Col} from 'react-bootstrap'
-import BGImage from '../assets/images/bg.png'; 
+
+import BGImage from '../../assets/images/bg.png'; 
+import '../../assets/css/background.css';
 
 class Background extends Component{
     render(){

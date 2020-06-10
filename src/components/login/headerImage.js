@@ -1,7 +1,5 @@
 import React,{ Component }  from 'react';
-import { Row, Col, Image } from 'react-bootstrap';
-
-import login from '../../assets/images/banner_login.jpg'
+import { Row, Col } from 'react-bootstrap';
 
 class HeaderImage extends Component {
     render(){

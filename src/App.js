@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import './App.css';
-import NavBar from './NavBar';
-import Background from './Background';
-import FoodNavBar from './FoodNavBar';
+import NavBar from './components/NavBar';
+import Background from './components/Background';
+import FoodNavBar from './components/FoodNavBar';
 
 class App extends Component{
   render(){

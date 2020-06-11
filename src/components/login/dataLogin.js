@@ -29,26 +29,17 @@ class Login extends Component {
     
     submit() {
 
-        const header = {
-            headers: {
-                Authorization : 'Bearer token'
-            }
-        }
-
         let formData = new FormData();
         formData.append('email', this.state.email)
         formData.append('password', this.state.password)
-        
-        // console.log(this.state);
 
-        axios.post('http://localhost:8000/api/auth/login', formData, header)
+        axios.post('http://localhost:8000/api/auth/login', formData)
         .then(respose => {
-            console.log(respose)
+            console.log(respose.data)
             alert("Bienvenido!")
         })
         .catch(error => {
-            alert(error)
-            // return <Redirect to="/login" />
+            console.log(error)
         })
     }
 

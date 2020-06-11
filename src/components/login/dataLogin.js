@@ -1,9 +1,10 @@
 import React,{ Component }  from 'react';
-import { Row, Col, Button, Container, Form, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import { Row, Col, Button, Container, Form, Navbar } from 'react-bootstrap';
 
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -71,7 +72,11 @@ class Login extends Component {
                                 </Form.Group>
                             </div>
                             <Navbar.Text className="link">
-                                <p>¿Aún no tienes una cuenta? <a href="#login">Regístrate</a></p>
+                                <p>¿Aún no tienes una cuenta?  
+                                    <Link to="/signup">
+                                        <button> Regístrate</button>
+                                    </Link>
+                                </p>
                             </Navbar.Text>
 
                             <div className="content_btn">

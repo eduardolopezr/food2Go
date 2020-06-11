@@ -1,12 +1,12 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { Card, Button, Image, Col, Row, Container } from 'react-bootstrap';
 
 import Chicken1 from '../assets/images/chicken1.png';
-import Chicken2 from '../assets/images/chicken2.png';//InfoPollos
-import Chicken3 from '../assets/images/chicken3.png';//InfoPollos
-import Chicken4 from '../assets/images/chicken4.png';//InfoPollos
-import Chicken5 from '../assets/images/chicken5.png';//InfoPollos
-import Chicken6 from '../assets/images/chicken6.png';//InfoPollos
+import Chicken2 from '../assets/images/chicken2.png';
+import Chicken3 from '../assets/images/chicken3.png';
+import Chicken4 from '../assets/images/chicken4.png';
+import Chicken5 from '../assets/images/chicken5.png';
+import Chicken6 from '../assets/images/chicken6.png';
 
 const InfoChickens = () => (
     <div>

@@ -36,7 +36,6 @@ class ListCart extends Component{
         }
 
         return(
-            // {this.state.productos.name}
             <Container className="container">
                 <Row className="header_cart mx-2">
                     <Col>Detalles del Producto</Col>

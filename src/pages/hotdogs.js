@@ -1,12 +1,12 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { Card, Row, Container, Col, Button, Image } from 'react-bootstrap';
 
-import HotDog1 from '../assets/images/hotdog1.png';//InfoHotDogs
-import HotDog2 from '../assets/images/hotdog2.png';//InfoHotDogs
-import HotDog3 from '../assets/images/hotdog3.png';//InfoHotDogs
-import HotDog4 from '../assets/images/hotdog4.png';//InfoHotDogs
-import HotDog5 from '../assets/images/hotdog5.png';//InfoHotDogs
-import HotDog6 from '../assets/images/hotdog6.png';//InfoHotDogs
+import HotDog1 from '../assets/images/hotdog1.png';
+import HotDog2 from '../assets/images/hotdog2.png';
+import HotDog3 from '../assets/images/hotdog3.png';
+import HotDog4 from '../assets/images/hotdog4.png';
+import HotDog5 from '../assets/images/hotdog5.png';
+import HotDog6 from '../assets/images/hotdog6.png';
 
 const InfoHotDogs = () => (
     <div>

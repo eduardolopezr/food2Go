@@ -126,6 +126,11 @@ $img-bg-login: url("../images/banner_login.jpg");
                         font-size: 0.85rem;
                         color:$color-whitesmoke;
                     }
+                    button {
+                        border: none;
+                        color: White;
+                        background: transparent;
+                    }
                 }
                 .content_btn {
                     display: flex;

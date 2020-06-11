@@ -1,12 +1,12 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { Card, Button, Image, Col, Row, Container } from 'react-bootstrap';
 
 import Burger1 from '../assets/images/burger1.png';
-import Burger2 from '../assets/images/burger2.jpg';//InfoBurgers
-import Burger3 from '../assets/images/burger3.png';//InfoBurgers
-import Burger4 from '../assets/images/burger4.jpg';//InfoBurgers
-import Burger5 from '../assets/images/burger5.jpg';//InfoBurgers
-import Burger6 from '../assets/images/burger6.png';//InfoBurgers
+import Burger2 from '../assets/images/burger2.jpg';
+import Burger3 from '../assets/images/burger3.png';
+import Burger4 from '../assets/images/burger4.jpg';
+import Burger5 from '../assets/images/burger5.jpg';
+import Burger6 from '../assets/images/burger6.png';
 
 const InfoBurgers = () => (
     <div>

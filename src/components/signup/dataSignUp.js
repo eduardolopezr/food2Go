@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faEnvelope, faUserLock } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -40,6 +41,7 @@ class Login extends Component {
         this.setState({confirmed: event.target.value});
     }
 
+    
     submit() {
         
         let formData = new FormData();
@@ -50,19 +52,16 @@ class Login extends Component {
         formData.append('password_confirmation', this.state.confirmed)
         
         console.log(this.state);
-
+        
         axios.post('http://localhost:8000/api/auth/signup', formData)
         .then(respose => {
-            console.log(respose.status)
+            console.log(respose)
         })
         .catch(error => {
-            if(error === "Error: Request failed with status code 422") {
-                alert("Usuario o contraseña inválidos")
-            }
-            // alert(error)
+            console.log(error.respose)
         })
     }
-
+    
     render(){
         return(
             <Container className="content_data">
@@ -120,7 +119,11 @@ class Login extends Component {
                                 </Form.Group>
                             </div>
                             <Navbar.Text className="link">
-                                <p>Ya tienes una cuenta? <a href="/login">Inicia Sesión</a></p>
+                                <p>Ya tienes una cuenta? 
+                                    <Link to="/login">
+                                        <button> Inicia Sesión</button>
+                                    </Link>
+                                </p>
                             </Navbar.Text>
 
                             <div className="content_btn">

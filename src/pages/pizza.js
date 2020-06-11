@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Row, Container, Col, Button, Image } from 'react-bootstrap';
 
-import Pizza4 from '../assets/images/pizza4.png';//InfoPizzas
-import Pizza5 from '../assets/images/pizza5.png';//InfoPizzas
-import Pizza6 from '../assets/images/pizza6.png';//InfoPizzas
-import Pizza7 from '../assets/images/pizza7.png';//InfoPizzas
-import Pizza8 from '../assets/images/pizza8.png';//InfoPizzas
-import Pizza9 from '../assets/images/pizza9.png';//InfoPizzas
+import Pizza4 from '../assets/images/pizza4.png';
+import Pizza5 from '../assets/images/pizza5.png';
+import Pizza6 from '../assets/images/pizza6.png';
+import Pizza7 from '../assets/images/pizza7.png';
+import Pizza8 from '../assets/images/pizza8.png';
+import Pizza9 from '../assets/images/pizza9.png';
 
 class InfoPizzas extends Component {
     constructor() {

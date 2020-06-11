@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Menu from '../components/header/Menu';
 import Banner from '../components/header/Background';
@@ -16,7 +16,6 @@ import Dessert from '../pages/desserts';
 
 const RoutesIntern = () => (
   <div>
-    {/* <NavBarTop /> */}
     <Banner />
     <Menu />
     <Switch>

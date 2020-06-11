@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Image,Container,Row,Col} from 'react-bootstrap'
+import {Image} from 'react-bootstrap'
 
 import BGImage from '../../assets/images/bg.png'; 
 import '../../assets/css/background.css';

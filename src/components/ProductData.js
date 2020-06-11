@@ -7,7 +7,6 @@ class ProductData extends Component {
     render(){
         return(
             <div>
-                {/* Datos producto agregado */}
                 <div className="mx-4">
                     <hr/>
                 </div>

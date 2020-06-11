@@ -1,5 +1,4 @@
 import React,{ Component }  from 'react';
-import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import { faStar, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
@@ -39,9 +38,9 @@ class InfoProduct extends Component{
     render(){
         return(
             <Container className="container">
-                <a onClick={() => this.props.history.goBack()}>
+                <button href="" onClick={() => this.props.history.goBack()}>
                     <FontAwesomeIcon icon={faLongArrowAltLeft} size="3x" className="arrow_back"/>
-                </a>
+                </button >
                 <Row className="center_content">
                     <Col xs={6} md={4} lg="5" className="image center_items">
                         <Image className="image_product" src={Producto} rounded />

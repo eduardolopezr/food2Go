@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faEnvelope, faUserLock } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -56,6 +56,7 @@ class Login extends Component {
         axios.post('http://localhost:8000/api/auth/signup', formData)
         .then(respose => {
             console.log(respose)
+            alert("Usuario creado");
         })
         .catch(error => {
             console.log(error.respose)

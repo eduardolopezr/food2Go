@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 import '../../assets/css/navBar.css';
 
@@ -22,12 +24,17 @@ class NavBar extends Component {
                             <Link to="/login">
                                 <h6 className="userOptions">¡Inicia Sesión!</h6>
                             </Link>
-                        </Nav.Link>
-                        <Nav.Link>
+                        {/* </Nav.Link>
+                        <Nav.Link> */}
                             <Link to="/signup">
                                 <h6 className="userOptions">¡Regístrate!</h6>
                             </Link>
                         </Nav.Link>
+                        <div className="cart">
+                            <Link to="/shopping_cart">
+                                <FontAwesomeIcon className="icon_car" icon={faShoppingCart} size="2x"/>
+                            </Link>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

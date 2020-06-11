@@ -4,7 +4,7 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import { Row, Col, Button, Container, Form, Navbar } from 'react-bootstrap';
 
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -17,29 +17,38 @@ class Login extends Component {
 
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePass = this.handleChangePass.bind(this);
-    }
 
+    }
+    
     handleChangeEmail(event) {
         this.setState({email: event.target.value});
     }
     handleChangePass(event) {
         this.setState({password: event.target.value});
     }
-
+    
     submit() {
-        
+
+        const header = {
+            headers: {
+                Authorization : 'Bearer token'
+            }
+        }
+
         let formData = new FormData();
         formData.append('email', this.state.email)
         formData.append('password', this.state.password)
         
-        console.log(this.state);
+        // console.log(this.state);
 
-        axios.post('http://localhost:8000/api/auth/login', formData)
+        axios.post('http://localhost:8000/api/auth/login', formData, header)
         .then(respose => {
             console.log(respose)
+            alert("Bienvenido!")
         })
         .catch(error => {
             alert(error)
+            // return <Redirect to="/login" />
         })
     }
 

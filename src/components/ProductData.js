@@ -1,7 +1,7 @@
 import React,{ Component }  from 'react';
 import { Row, Col, Button, Image } from 'react-bootstrap';
 
-import Producto from'../assets/images/pizza2.png'
+const url = 'http://127.0.0.1:8000/storage/'
 
 class ProductData extends Component {
     render(){
@@ -16,7 +16,7 @@ class ProductData extends Component {
                             <Col xs lg="8">
                                 <Row>
                                     <Col xs lg="3" className="content_img">
-                                        <Image className="image_product" src={Producto} rounded />
+                                        <Image className="image_product" src={url+this.props.producto.image} rounded />
                                     </Col>
                                     <Col xs lg="" className="content_info">
                                         <div>
@@ -37,7 +37,7 @@ class ProductData extends Component {
                     </Col>
                     <Col xs lg="2" className="center_text center_item_self pl-5">
                         <form>
-                            <input type="number" min="1" max="100" step="1" placeholder="2"/>
+                            <input type="number" name="quantity" id="quantity" min="1" max="100" step="1" value="1"/>
                         </form>
                     </Col>
                     <Col xs lg="1" className="center_text center_item pr-0">

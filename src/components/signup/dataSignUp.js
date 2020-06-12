@@ -1,10 +1,10 @@
 import React,{ Component }  from 'react';
-import { Row, Col, Button, Container, Form, Navbar, Alert } from 'react-bootstrap';
+import { Row, Col, Button, Container, Form, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faEnvelope, faUserLock } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -119,13 +119,6 @@ class Login extends Component {
                                     </Col>
                                 </Form.Group>
                             </div>
-                            <Navbar.Text className="link">
-                                <p>Ya tienes una cuenta? 
-                                    <Link to="/login">
-                                        <button> Inicia Sesión</button>
-                                    </Link>
-                                </p>
-                            </Navbar.Text>
 
                             <div className="content_btn">
                                 <Button className="btn_enviar" onClick={()=>this.submit()}>
@@ -133,6 +126,13 @@ class Login extends Component {
                                 </Button>
                             </div>
                         </Form>
+                        <div className="link">
+                            <p>Ya tienes una cuenta? 
+                                <Link to="/login">
+                                    <button> Inicia Sesión</button>
+                                </Link>
+                            </p>
+                        </div>
                     </Col>
                 </Row>
             </Container>

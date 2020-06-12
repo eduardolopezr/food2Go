@@ -15,46 +15,34 @@ const FoodNavBar = () => (
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
             <Nav justify fill variant="tabs">
                 <Nav.Item>
-                    <Nav.Link>
-                        <Link to="/">
-                            <Image src={IconHome} alt="Home" title="Inicio"></Image>
-                        </Link>
-                    </Nav.Link>
+                    <Link to="/" className="nav-link">
+                        <Image src={IconHome} alt="Home" title="Inicio"></Image>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link>
-                        <Link to="/productos/pizzas">
-                            <Image src={IconPizza} alt="Pizza" title="Mostrar Pizzas"></Image>
-                        </Link>
-                    </Nav.Link>
+                    <Link to="/productos/pizzas" className="nav-link">
+                        <Image src={IconPizza} alt="Pizza" title="Mostrar Pizzas"></Image>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link>
-                        <Link to="/productos/burgers">
-                            <Image src={IconBurger} alt="Burger" title="Mostrar Hamburgesas " ></Image>
-                        </Link>
-                    </Nav.Link>
+                    <Link to="/productos/burgers" className="nav-link">
+                        <Image src={IconBurger} alt="Burger" title="Mostrar Hamburgesas " ></Image>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link >
-                        <Link to="/productos/chickens" >
-                            <Image src={IconChicken} alt="Chickens" title="Mostrar Pollos"></Image>
-                        </Link>
-                    </Nav.Link>
+                    <Link to="/productos/chickens"  className="nav-link">
+                        <Image src={IconChicken} alt="Chickens" title="Mostrar Pollos"></Image>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link>
-                        <Link to="/productos/hotdogs">
-                            <Image src={IconHotDog} alt="HotDog" title="Mostrar Hot-Dogs"></Image>
-                        </Link>
-                    </Nav.Link>
+                    <Link to="/productos/hotdogs" className="nav-link">
+                        <Image src={IconHotDog} alt="HotDog" title="Mostrar Hot-Dogs"></Image>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link>
-                        <Link to="/productos/desserts">
-                            <Image src={IconDessert} alt="Postre" title="Mostrar Postres"></Image>
-                        </Link>
-                    </Nav.Link>
+                    <Link to="/productos/desserts" className="nav-link">
+                        <Image src={IconDessert} alt="Postre" title="Mostrar Postres"></Image>
+                    </Link>
                 </Nav.Item>
             </Nav>
         </Navbar.Collapse>

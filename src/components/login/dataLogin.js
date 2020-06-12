@@ -1,10 +1,12 @@
 import React,{ Component }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
-import { Row, Col, Button, Container, Form, Navbar } from 'react-bootstrap';
+import { Row, Col, Button, Container, Form } from 'react-bootstrap';
 
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { setToken } from '../../routes/validate_login';
+import { isLogin } from '../../routes/validate_login';
 
 class Login extends Component {
     constructor() {
@@ -13,6 +15,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            token: ''
         }
 
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -35,11 +38,20 @@ class Login extends Component {
 
         axios.post('http://localhost:8000/api/auth/login', formData)
         .then(respose => {
-            console.log(respose.data)
-            alert("Bienvenido!")
+            const token = respose.data.access_token;
+            this.setState({ token })
+            
+            if(isLogin() === true) {
+                alert("Usted ya inició sesión!")
+            } else {
+                setToken(token)
+                alert("Bienvenido!")
+            }
+            
         })
         .catch(error => {
             console.log(error)
+            alert("Datos incorrectos")
         })
     }
 
@@ -71,13 +83,6 @@ class Login extends Component {
                                     </Col>
                                 </Form.Group>
                             </div>
-                            <Navbar.Text className="link">
-                                <p>¿Aún no tienes una cuenta?  
-                                    <Link to="/signup">
-                                        <button> Regístrate</button>
-                                    </Link>
-                                </p>
-                            </Navbar.Text>
 
                             <div className="content_btn">
                                 <Button className="btn_enviar" onClick={()=>this.submit()}>
@@ -85,10 +90,18 @@ class Login extends Component {
                                 </Button>
                             </div>
                         </Form>
+                        <div className="link">
+                            <p>¿Aún no tienes una cuenta?  
+                                <Link to="/signup">
+                                    <button> Regístrate</button>
+                                </Link>
+                            </p>
+                        </div>
                     </Col>
                 </Row>
             </Container>
         );
     }
 }
+
 export default Login;

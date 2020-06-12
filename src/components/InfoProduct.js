@@ -4,8 +4,10 @@ import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import { faStar, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
-import Producto from '../assets/images/pizza1.jpg'
 import '../assets/css/infoProduct.scss';
+import { Link } from 'react-router-dom';
+
+const url = 'http://127.0.0.1:8000/storage/'
 
 class InfoProduct extends Component{
     constructor() {
@@ -43,7 +45,7 @@ class InfoProduct extends Component{
                 </button >
                 <Row className="center_content">
                     <Col xs={6} md={4} lg="5" className="image center_items">
-                        <Image className="image_product" src={Producto} rounded />
+                        <Image className="image_product" src={url+this.state.productos.image} rounded />
                     </Col>
                     <Col xs lg="5" className="header_info">
                         <div>
@@ -59,45 +61,28 @@ class InfoProduct extends Component{
                             <div className="mt-3">
                                 <p>{this.state.productos.description}</p>
                             </div>
-                            <Form className="py-3">
+                            <div className="py-3">
                                 <Row >
-                                    <Col className="select">
-                                        <h6>Subtitle: </h6>
-                                        <Form.Control as="select">
-                                            <option>Default select</option>
-                                            <option>Opcion 1</option>
-                                        </Form.Control>
-                                    </Col>
-                                    <Col className="select">
-                                        <h6>Subtitle: </h6>
-                                        <Form.Control as="select">
-                                            <option>Default select</option>
-                                        </Form.Control>
-                                    </Col>
-                                </Row>
-                                <Row className="mt-4">
-                                    <Col className="select">
-                                        <h6>Subtitle: </h6>
-                                        <Form.Control as="select">
-                                            <option>Default select</option>
-                                        </Form.Control>
-                                    </Col>
-                                    <Col className="select">
-                                        <h6>Subtitle: </h6>
-                                        <Form.Control as="select">
-                                            <option>Default select</option>
-                                        </Form.Control>
+                                    <Col>
+                                        <h6>Cantidad: </h6>
+                                        <div className="quantity">
+                                            <input type="number" name="quantity" id="quantity" min="1" max="100" step="1" placeholder="1"/>
+                                        </div>
                                     </Col>
                                 </Row>
                                 <Row className="mt-5">
                                     <Col>
-                                        <Button className="btn_buy" as="input" type="submit" value="Buy Now" />
+                                        <Link>
+                                            <Button className="btn_buy" type="submit">Comprar Ahora</Button>
+                                        </Link>
                                     </Col>
                                     <Col>
-                                        <Button className="btn_add" as="input" type="submit" value="Add ot Car" />
+                                        <Link to="/shopping_cart">
+                                            <Button className="btn_add" type="submit">Agregar al Carrito</Button>
+                                        </Link>
                                     </Col>
                                 </Row>
-                            </Form>
+                            </div>
                         </div>
                     </Col>
                 </Row>

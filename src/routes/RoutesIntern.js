@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Menu from '../components/header/Menu';
 import Banner from '../components/header/Background';
@@ -15,24 +15,25 @@ import Chicken from '../pages/chickens';
 import HotDog from '../pages/hotdogs';
 import Dessert from '../pages/desserts';
 
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
 const RoutesIntern = () => (
   <div>
     <Banner />
     <Menu />
     <Switch>
-      <Route path="/login" component={Login}/>
-      <Route exact path="/" component={Home} />
-      <Route path="/productos/pizzas" component={Pizza} />
-      <Route path="/productos/burgers" component={Burger} />
-      <Route path="/productos/chickens" component={Chicken} />
-      <Route path="/productos/hotdogs" component={HotDog} />
-      <Route path="/productos/desserts" component={Dessert} />
-      <Route path="/signup" component={Signup}/>
-      <Route path='/info/:pizzaId' component={Info}/>
+      <PublicRoute restricted={false} component={Login} path="/login"/>
+      <PublicRoute restricted={false} component={Home} exact path="/"/>
+      <Route component={Pizza} path="/productos/pizzas"/>
+      <Route component={Burger} path="/productos/burgers"/>
+      <Route component={Chicken} path="/productos/chickens"/>
+      <Route component={HotDog} path="/productos/hotdogs"/>
+      <Route component={Dessert} path="/productos/desserts"/>
+      <PublicRoute restricted={false} component={Signup} path="/signup"/>
+      <PublicRoute restricted={false} component={Info} path='/info/:pizzaId'/>
 
-      {/* <Route exact path="/login">
-        {Login ? <Redirect to="/shopping_car" /> : <Home />}
-      </Route> */}
+      <PrivateRoute component={ListCar} path="/shopping_cart"/>
     </Switch>
   </div>
 );

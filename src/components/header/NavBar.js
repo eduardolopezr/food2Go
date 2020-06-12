@@ -5,9 +5,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 import '../../assets/css/navBar.css';
+import { logout, isLogin } from '../../routes/validate_login';
 
 class NavBar extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isLogin: isLogin()
+        }
+    }
+
+    handleLogout = () => {
+        logout();
+        this.setState({
+            isLogin: false
+        })
+    }
+    
     render() {
+
+        let session = [];
+
+        if(isLogin() === true) {
+            session.push(<ShoppingCart />)
+        } else {
+            alert('Inicie Sesión!')
+        }
+
         return (
             <Navbar bg="danger" expand="lg" id="navBar">
                 <Link to="/">
@@ -20,20 +45,18 @@ class NavBar extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav>
-                        <Nav.Link>
-                            <Link to="/login">
-                                <h6 className="userOptions">¡Inicia Sesión!</h6>
-                            </Link>
-                        {/* </Nav.Link>
-                        <Nav.Link> */}
-                            <Link to="/signup">
-                                <h6 className="userOptions">¡Regístrate!</h6>
-                            </Link>
-                        </Nav.Link>
+                        <div className="mr-3 text-center">
+                            {this.state.isLogin ? 
+                                    <Link onClick={() => this.handleLogout()}>
+                                        <h6 className="userOptions">Cerrar Sesión</h6>
+                                    </Link>
+                                : <div><Link to="/login"><h6 className="userOptions">Iniciar Sesión</h6></Link> <Link to="/signup" className="">
+                                <h6 className="userOptions">Regístrate!</h6>
+                            </Link></div>
+                            }
+                        </div>
                         <div className="cart">
-                            <Link to="/shopping_cart">
-                                <FontAwesomeIcon className="icon_car" icon={faShoppingCart} size="2x"/>
-                            </Link>
+                            {session}
                         </div>
                     </Nav>
                 </Navbar.Collapse>
@@ -41,4 +64,14 @@ class NavBar extends Component {
         );
     }
 }
+
+function ShoppingCart() {
+    return (
+        <Link to="/shopping_cart">
+            <FontAwesomeIcon className="icon_car" icon={faShoppingCart} size="2x"/>
+        </Link>
+    );
+}
+
+
 export default NavBar;

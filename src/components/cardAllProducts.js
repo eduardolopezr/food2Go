@@ -14,7 +14,7 @@ class cardProduct extends Component {
                     <Card.Text>
                         {this.props.producto.description}
                     </Card.Text>
-                    <Link to="/productos/">
+                    <Link to={`/info/${this.props.producto.id}`}>
                         <Button variant="outline-danger">¡Ordenar ahora!</Button>
                     </Link>
                 </Card.Body>

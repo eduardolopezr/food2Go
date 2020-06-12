@@ -75,7 +75,7 @@ $img-bg-login: url("../images/banner_login.jpg");
         width: $width-content;
         background: $color-bg-gray;
         padding-top: 1rem;
-        padding-bottom: 1.5rem;
+        padding-bottom: 0;
         border-bottom-left-radius: .8rem;
         border-bottom-right-radius: .8rem;
         .center {
@@ -116,28 +116,16 @@ $img-bg-login: url("../images/banner_login.jpg");
                         }
                     }
                 }
-                .link {
-                    display: flex;
-                    justify-content: flex-end;
-                    margin: 0 2.5rem;
-                    padding-bottom: 1rem;
-                    padding-top: 0;
-                    p {
-                        font-size: 0.85rem;
-                        color:$color-whitesmoke;
-                    }
-                    button {
-                        border: none;
-                        color: White;
-                        background: transparent;
-                    }
-                }
+                
                 .content_btn {
                     display: flex;
                     justify-content: center;
+                    padding-left: 3rem;
+                    margin-bottom: 1rem;
                     .btn_enviar {
                         width: 40%;
                         height: auto;
+                        // margin: auto auto auto 5rem;
                         border-radius: 2rem;
                         background: $color-red;
                         border-color: $color-red;
@@ -145,6 +133,22 @@ $img-bg-login: url("../images/banner_login.jpg");
                             background: $color-redBrown;
                         }
                     }
+                }
+            }
+            .link {
+                display: flex;
+                justify-content: center;
+                padding-left: 2rem;
+                padding-bottom: .5rem;
+                padding-top: 0;
+                p {
+                    font-size: 0.85rem;
+                    color:$color-whitesmoke;
+                }
+                button {
+                    border: none;
+                    color: White;
+                    background: transparent;
                 }
             }
         }

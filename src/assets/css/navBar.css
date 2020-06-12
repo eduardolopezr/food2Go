@@ -14,7 +14,7 @@ a > h6 {
     margin: auto;
     padding: 5px 0;
 }
-h6:hover {
+a > h6:hover {
     color:brown;
     transition: ease-in 3ms;
 }

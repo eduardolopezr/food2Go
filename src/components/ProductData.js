@@ -1,9 +1,40 @@
 import React,{ Component }  from 'react';
 import { Row, Col, Button, Image } from 'react-bootstrap';
 
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { getToken } from '../routes/validate_login';
+
 const url = 'http://127.0.0.1:8000/storage/'
 
 class ProductData extends Component {
+    constructor() {
+        super();
+        
+        this.state = {
+            productos: [],
+            quantity: '',
+        }
+ 
+    }
+    
+    delete() {
+
+        let formData = new FormData();
+        formData.append('product_id', this.props.producto.id)
+
+        axios.post('http://localhost:8000/api/auth/cart/delete-product', formData, {
+            headers: {
+                'Authorization' : `Bearer ${getToken()}`
+            }
+        })
+        .then(response => {
+            console.log(response);
+            window.location.reload(true);
+            console.log("Producto eliminado");
+        })
+    }
+
     render(){
         return(
             <div>
@@ -21,27 +52,27 @@ class ProductData extends Component {
                                     <Col xs lg="" className="content_info">
                                         <div>
                                             <h6>{this.props.producto.name}</h6>
-                                            <p className="type_product">Tipo de producto</p>
-                                            <p className="description">Ea adipisicing nisi. Veniam eiusmod consectetur id proident pariatur.</p>
+                                            <p className="type_product">{this.props.producto.type_product}</p>
+                                            <p className="description">{this.props.producto.description}</p>
                                         </div>
                                     </Col>
                                 </Row>
                             </Col>
                             <Col className="delete">
-                                <Button className="btn_delete">Eliminar</Button>
+                                <Button className="btn_delete" onClick={()=>this.delete()}>
+                                        Eliminar
+                                </Button>
                             </Col>
                         </Row>
                     </Col>
                     <Col xs lg="1" className="center_text center_item">
                         <b>$ {this.props.producto.price}</b>
                     </Col>
-                    <Col xs lg="2" className="center_text center_item_self pl-5">
-                        <form>
-                            <input type="number" name="quantity" id="quantity" min="1" max="100" step="1" value="1"/>
-                        </form>
+                    <Col xs lg="2" className="center_text center_item_self pl-5">    
+                        <b> {this.props.producto.pivot.quantity} </b>
                     </Col>
                     <Col xs lg="1" className="center_text center_item pr-0">
-                        <b>$ 00.00</b>
+                        <b>$ {this.props.producto.pivot.quantity * this.props.producto.price}</b>
                     </Col>
                 </Row>
             </div>

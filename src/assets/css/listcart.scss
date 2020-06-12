@@ -74,6 +74,22 @@
     }
     .content_order{
         padding-top: 3rem;
+        .content_btn_izq {
+            width: 33%;
+            display: flex;
+            justify-content: flex-start;
+            .btn_buy {
+                width: 100%;
+                color: white;
+                padding: .7rem 3rem;
+                border-radius: 2rem;
+                background: rgb(218, 24, 24);
+                border-color: rgb(218, 24, 24);
+                &:hover {
+                    background: brown;
+                }
+            }
+        }
         .col_dech {
             width: 33%;
             h3 {

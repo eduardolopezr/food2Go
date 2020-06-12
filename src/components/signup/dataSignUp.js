@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faEnvelope, faUserLock } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -57,6 +57,7 @@ class Login extends Component {
         .then(respose => {
             console.log(respose)
             alert("Usuario creado");
+            return <Redirect to="/login" />
         })
         .catch(error => {
             console.log(error.respose)

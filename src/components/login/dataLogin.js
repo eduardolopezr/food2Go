@@ -4,7 +4,7 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import { Row, Col, Button, Container, Form } from 'react-bootstrap';
 
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setToken } from '../../routes/validate_login';
 import { isLogin } from '../../routes/validate_login';
 
@@ -46,6 +46,7 @@ class Login extends Component {
             } else {
                 setToken(token)
                 alert("Bienvenido!")
+                return <Redirect to="/" />
             }
             
         })
